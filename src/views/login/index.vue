@@ -11,6 +11,7 @@
       <div class="desc">6. {{ $t('common.desc.f') }}</div>
       <div class="desc">7. {{ $t('common.desc.g') }}</div>
       <div class="desc">8. {{ $t('common.desc.h') }}</div>
+      <div class="desc">9. {{ $t('common.desc.i') }}</div>
     </div>
     <el-form ref="loginForm" :model="loginForm" :rules="rules" class="login-form" autocomplete="off" label-position="left">
       <div class="title-container">
@@ -144,7 +145,7 @@
       </el-dropdown>
     </el-form>
     <span class="login-footer">
-      © 2019 <a target="_blank" href="https://mrbird.cc">MrBird</a> - FEBS
+      © 2020 <a target="_blank" href="https://mrbird.cc">MrBird</a> - FEBS
     </span>
   </div>
 </template>

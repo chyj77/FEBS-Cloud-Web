@@ -11,10 +11,10 @@
         class="filter-item search-item date-range-item"
         type="daterange"
       />
-      <el-button class="filter-item" type="primary" plain @click="search">
+      <el-button class="filter-item" type="primary" @click="search">
         {{ $t('table.search') }}
       </el-button>
-      <el-button class="filter-item" type="warning" plain @click="reset">
+      <el-button class="filter-item" type="success" @click="reset">
         {{ $t('table.reset') }}
       </el-button>
       <el-dropdown v-has-any-permission="['user:add','user:delete','user:reset','user:export']" trigger="click" class="filter-item">
@@ -311,9 +311,12 @@ export default {
         roleId = row.roleId.split(',')
         row.roleId = roleId
       }
-      this.$refs.edit.setUser(row)
-      this.dialog.title = this.$t('common.edit')
-      this.dialog.isVisible = true
+      this.$get(`system/user/${row.userId}`).then((r) => {
+        row.deptIds = r.data.data
+        this.$refs.edit.setUser(row)
+        this.dialog.title = this.$t('common.edit')
+        this.dialog.isVisible = true
+      })
     },
     fetch(params = {}) {
       params.pageSize = this.pagination.size
